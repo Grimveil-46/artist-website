@@ -2,60 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gallery | Artist Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gallery | Anns Mary Joshy</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <h1 class="logo">🎨 Her Name</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="gallery.html" class="active">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <div class="custom-cursor"></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">🎨 <span>Anns Mary Joshy</span></a>
+      <nav id="mainNav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2>My Artworks</h2>
-   <!-- Swiper Gallery -->
- <div class="masonry">
-    <div class="item"><img src="art1.png" alt="Artwork 1"></div>
-    <div class="item"><img src="art2.webp" alt="Artwork 2"></div>
-    <div class="item"><img src="art3.webp" alt="Artwork 3"></div>
-    <div class="item"><img src="art4.webp" alt="Artwork 4"></div>
-    <div class="item"><img src="art5.png" alt="Artwork 5"></div>
-    <div class="item"><img src="art6.png" alt="Artwork 6"></div>
+  <main style="padding-top:90px">
+    <section class="gallery-wall">
+      <h2 data-aos="fade-up">✨ Virtual Art Wall ✨</h2>
+      <p class="gallery-intro" data-aos="fade-up" data-aos-delay="100">Step into my digital exhibition — click on a frame to view full-size artwork.</p>
+
+      <div class="wall" id="artWall">
+        <div class="frame" data-aos="fade-up" data-aos-delay="200">
+          <div class="frame-inner">
+            <img src="art1.png" alt="Portrait Gift" data-index="0">
+            <div class="overlay"><span>View Artwork</span></div>
+          </div>
+        </div>
+
+        <div class="frame" data-aos="fade-up" data-aos-delay="300">
+          <div class="frame-inner">
+            <img src="art2.webp" alt="Family Portrait" data-index="1">
+            <div class="overlay"><span>View Artwork</span></div>
+          </div>
+        </div>
+
+        <div class="frame" data-aos="fade-up" data-aos-delay="400">
+          <div class="frame-inner">
+            <img src="art3.webp" alt="Wedding Couple" data-index="2">
+            <div class="overlay"><span>View Artwork</span></div>
+          </div>
+        </div>
+
+        <div class="frame" data-aos="fade-up" data-aos-delay="200">
+          <div class="frame-inner">
+            <img src="art4.webp" alt="Couple Gift" data-index="3">
+            <div class="overlay"><span>View Artwork</span></div>
+          </div>
+        </div>
+
+        <div class="frame" data-aos="fade-up" data-aos-delay="300">
+          <div class="frame-inner">
+            <img src="art5.png" alt="Portrait Illustration" data-index="4">
+            <div class="overlay"><span>View Artwork</span></div>
+          </div>
+        </div>
+
+        <div class="frame" data-aos="fade-up" data-aos-delay="400">
+          <div class="frame-inner">
+            <img src="art6.png" alt="Happy Friends" data-index="5">
+            <div class="overlay"><span>View Artwork</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" style="display:none">
+    <button id="lbClose" class="lb-btn lb-close" aria-label="Close">&times;</button>
+    <button id="lbPrev" class="lb-btn lb-prev" aria-label="Previous">&#10094;</button>
+    <img id="lbImage" src="" alt="">
+    <button id="lbNext" class="lb-btn lb-next" aria-label="Next">&#10095;</button>
   </div>
 
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Anns Mary Joshy</strong>
+        <p class="muted">Digital Artist | Portraits & Gifts</p>
+      </div>
+      <div>
+        <p>Follow me</p>
+        <p class="socials">
+          <a href="https://www.instagram.com/arting_colors" target="_blank">Instagram</a> ·
+          <a href="#">Pinterest</a> ·
+          <a href="mailto:anns@example.com">Email</a>
+        </p>
+      </div>
+      <div class="copyright">
+        <p>© 2025 Anns Mary Joshy</p>
+      </div>
+    </div>
+  </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ duration: 800, once: true });
+    
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger && hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('is-active');
+    });
 
-  </section>
-  <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    // Lightbox
+    const imgs = Array.from(document.querySelectorAll('.wall img'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImage');
+    const lbClose = document.getElementById('lbClose');
+    const lbNext = document.getElementById('lbNext');
+    const lbPrev = document.getElementById('lbPrev');
+    let idx = 0;
 
-<script>
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-</script>
+    function showImage(i) {
+      idx = i;
+      lbImg.src = imgs[i].src;
+      lbImg.alt = imgs[i].alt;
+      lb.style.display = 'flex';
+    }
 
+    imgs.forEach((img, i) => img.addEventListener('click', () => showImage(i)));
+    lbClose.addEventListener('click', () => lb.style.display = 'none');
+    lbNext.addEventListener('click', () => showImage((idx + 1) % imgs.length));
+    lbPrev.addEventListener('click', () => showImage((idx - 1 + imgs.length) % imgs.length));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.style.display = 'none'; });
+
+    // Keyboard nav
+    document.addEventListener('keydown', e => {
+      if (lb.style.display === 'flex') {
+        if (e.key === 'ArrowRight') lbNext.click();
+        if (e.key === 'ArrowLeft') lbPrev.click();
+        if (e.key === 'Escape') lbClose.click();
+      }
+    });
+
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.setAttribute("style", "top: "+(e.pageY - scrollY)+"px; left: "+e.pageX+"px;")
+    });
+    const hoverTargets = document.querySelectorAll('a, button, .hamburger, .frame img');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseover', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseout', () => cursor.classList.remove('hover'));
+    });
+  </script>
 </body>
 </html>
