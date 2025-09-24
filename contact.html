@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact | Anns Mary Joshy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="custom-cursor"></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">🎨 <span>Anns Mary Joshy</span></a>
+      <nav id="mainNav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:90px">
+    <section class="contact" style="padding:60px 0">
+      <div data-aos="fade-up">
+        <h2 style="text-align:center">✨ Let’s Create Something Special</h2>
+        <p class="contact-intro" style="text-align:center;color:var(--muted);max-width:700px;margin:12px auto 40px">Want to commission a portrait or give a framed gift? Fill this form and I’ll get back within 48 hours.</p>
+      </div>
+
+      <div class="contact-container" style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center" data-aos="fade-up" data-aos-delay="200">
+        <form class="contact-form" style="flex:1;min-width:300px;max-width:420px;background:white;padding:22px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06)" method="POST" action="https://formspree.io/f/your-form-id">
+          <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px">
+          <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px">
+          <select name="art_type" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px;background:#fff;appearance:none;">
+            <option value="">Choose artwork type</option>
+            <option value="portrait">Portrait</option>
+            <option value="couple">Couple</option>
+            <option value="family">Family</option>
+            <option value="custom">Custom</option>
+          </select>
+          <textarea name="message" rows="5" placeholder="Tell me about the photo or occasion" style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px"></textarea>
+          <button class="btn btn-primary" type="submit" style="width:100%">Send Request</button>
+        </form>
+
+        <div class="contact-info" style="flex:1;max-width:360px;">
+          <h3>Get in touch</h3>
+          <p class="muted">Email: <a href="mailto:anns@example.com">anns@example.com</a></p>
+          <p class="muted">Instagram: <a href="https://www.instagram.com/arting_colors" target="_blank">@arting_colors</a></p>
+          <br>
+          <p class="muted">Prefer a quick chat?</p>
+          <a class="btn btn-outline" href="https://wa.me/919876543210" target="_blank" rel="noopener" style="border-width:2px;">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="margin-top:40px">
+    <div class="container footer-grid">
+      <div><strong>Anns Mary Joshy</strong><p class="muted">Digital Artist</p></div>
+      <div><p class="socials"><a href="https://www.instagram.com/arting_colors">Instagram</a> · <a href="#">Pinterest</a></p></div>
+      <div><p>© 2025</p></div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ duration: 800, once: true });
+
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger && hamburger.addEventListener('click', () => { nav.classList.toggle('open'); hamburger.classList.toggle('is-active'); });
+
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.setAttribute("style", "top: "+(e.pageY - scrollY)+"px; left: "+e.pageX+"px;")
+    });
+    const hoverTargets = document.querySelectorAll('a, button, .hamburger');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseover', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseout', () => cursor.classList.remove('hover'));
+    });
+  </script>
+</body>
+</html>
