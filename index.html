@@ -1,29 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Artist Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anns Mary Joshy | Digital Artist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <h1 class="logo">🎨 Her Name</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+
+  <div class="custom-cursor"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">🎨 <span>Anns Mary Joshy</span></a>
+      <nav id="mainNav" class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-text">
-      <h2>Art that touches the soul</h2>
-      <p>Explore my creative journey through colors, stories, and imagination.</p>
-      <button onclick="window.location.href='gallery.html'">View Gallery</button>
+    <video autoplay muted loop class="hero-video">
+      <source src="background.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-inner container">
+      <h1 class="hero-title">Transforming Memories into Timeless Art</h1>
+      <p class="hero-lead">Personalised digital paintings — framed gifts that hold emotions and stories.</p>
+      <a class="btn btn-primary" href="gallery.html">Explore Gallery</a>
+      <a class="btn btn-primary href="contact.html">Request a Gift</a>
     </div>
   </section>
+
+  <section class="about-preview container" data-aos="fade-up">
+    <div class="about-grid">
+      <div class="about-image"><img src="artist.png" alt="Anns Mary Joshy"></div>
+      <div class="about-copy">
+        <h2>Meet the Artist</h2>
+        <p>Hello — I’m <strong>Anns Mary Joshy</strong>. I turn your favorite moments into digital paintings that feel personal and warm. Each piece is digitally painted, color-graded, and delivered as a printable file or framed artwork.</p>
+        <p class="muted">Portraits, couple gifts, family illustrations — every commission is crafted with care.</p>
+        <a class="btn btn-outline" href="about.html">Read My Story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured container" data-aos="fade-up">
+    <h2>✨ Featured Creations</h2>
+    <div class="featured-grid">
+      <a href="gallery.html" data-aos="fade-up" data-aos-delay="100"><img src="art1.png" alt="Artwork 1"></a>
+      <a href="gallery.html" data-aos="fade-up" data-aos-delay="200"><img src="art2.webp" alt="Artwork 2"></a>
+      <a href="gallery.html" data-aos="fade-up" data-aos-delay="300"><img src="art3.webp" alt="Artwork 3"></a>
+    </div>
+    <div class="center">
+      <a class="btn btn-primary" href="gallery.html">View Full Gallery</a>
+    </div>
+  </section>
+
+  <section class="testimonials" data-aos="fade-up">
+    <div class="container">
+        <h2>What Customers Say</h2>
+        <div class="testimonial-slider" id="testimonialSlider">
+          <div class="testimonial-item"><p>“The portrait was breathtaking! It felt so personal and emotional.”</p><h4>— Sarah M.</h4></div>
+          <div class="testimonial-item"><p>“A perfect gift for my parents, they absolutely loved it.”</p><h4>— Rahul K.</h4></div>
+          <div class="testimonial-item"><p>“She turned my photo into art I’ll treasure forever.”</p><h4>— Emily R.</h4></div>
+        </div>
+    </div>
+  </section>
+
+  <section class="commissions container" data-aos="fade-up">
+    <div class="commissions-inner">
+      <div>
+        <h2>Art as a Gift 🎁</h2>
+        <p>Share a photo → I create a painting → You receive a framed gift or high-res digital file. Simple, heartfelt, and utterly personal.</p>
+      </div>
+      <div class="commis-cta"><a class="btn btn-primary" href="contact.html">Request a Gift</a></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>Anns Mary Joshy</strong><p class="muted">Digital Artist | Portraits & Gifts</p></div>
+      <div><p>Follow me</p><p class="socials"><a href="https://www.instagram.com/arting_colors" target="_blank">Instagram</a> · <a href="#">Pinterest</a> · <a href="mailto:anns@example.com">Email</a></p></div>
+      <div class="copyright"><p>© 2025 Anns Mary Joshy</p></div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+    
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', () => { nav.classList.toggle('open'); hamburger.classList.toggle('is-active'); });
+
+    // Testimonial Slider
+    const tSlider = document.getElementById('testimonialSlider');
+    let tIndex = 0;
+    const tItems = tSlider.querySelectorAll('.testimonial-item');
+    function showTestimonial(i){ tItems.forEach((x,idx)=> x.style.display = idx===i ? 'block' : 'none'); }
+    setInterval(()=>{ tIndex = (tIndex+1) % tItems.length; showTestimonial(tIndex); }, 4000);
+    showTestimonial(0);
+
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.setAttribute("style", "top: "+(e.pageY - scrollY)+"px; left: "+e.pageX+"px;")
+    });
+    const hoverTargets = document.querySelectorAll('a, button, .hamburger');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseover', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseout', () => cursor.classList.remove('hover'));
+    });
+  </script>
 </body>
 </html>
