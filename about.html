@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About | Anns Mary Joshy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="custom-cursor"></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">🎨 <span>Anns Mary Joshy</span></a>
+      <nav id="mainNav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:90px">
+    <section style="padding:60px 0" data-aos="fade-up">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="artist.png" alt="Anns Mary Joshy">
+        </div>
+        <div class="about-copy">
+          <h2>About Me</h2>
+          <p>Hi — I'm Anns. I’ve been creating digital portraits and personalized artworks for clients across celebrations and milestones. My approach is to keep the emotion truthful and the colors warm.</p>
+          <p>I work digitally and offer framed prints or high-resolution files. Every commission includes 1 free revision and a digital preview before final delivery.</p>
+          <a class="btn btn-primary" href="contact.html">Commission Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 40px 0 60px;">
+      <h3 style="text-align:center" data-aos="fade-up">My Process</h3>
+      <div class="process-steps">
+        <div class="step" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:30px;height:30px;color:var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <strong>1. Share Photo</strong>
+          <p class="muted">Send your favorite photo and occasion details.</p>
+        </div>
+        
+        <div class="step-arrow" data-aos="fade-in" data-aos-delay="200">→</div>
+        
+        <div class="step" data-aos="fade-up" data-aos-delay="300">
+           <div class="step-icon">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:30px;height:30px;color:var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+           </div>
+          <strong>2. I Paint</strong>
+          <p class="muted">I create a preview and refine it with your feedback.</p>
+        </div>
+        
+        <div class="step-arrow" data-aos="fade-in" data-aos-delay="400">→</div>
+        
+        <div class="step" data-aos="fade-up" data-aos-delay="500">
+           <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:30px;height:30px;color:var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <strong>3. Finalize</strong>
+          <p class="muted">Receive the high-res file or framed print delivered.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="margin-top:40px">
+    <div class="container footer-grid">
+      <div><strong>Anns Mary Joshy</strong><p class="muted">Digital Artist</p></div>
+      <div><p class="socials"><a href="https://www.instagram.com/arting_colors">Instagram</a> · <a href="#">Pinterest</a></p></div>
+      <div><p>© 2025</p></div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ duration: 800, once: true });
+    
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger && hamburger.addEventListener('click', () => { nav.classList.toggle('open'); hamburger.classList.toggle('is-active'); });
+
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.setAttribute("style", "top: "+(e.pageY - scrollY)+"px; left: "+e.pageX+"px;")
+    });
+    const hoverTargets = document.querySelectorAll('a, button, .hamburger');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseover', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseout', () => cursor.classList.remove('hover'));
+    });
+  </script>
+</body>
+</html>
